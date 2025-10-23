@@ -323,7 +323,10 @@ export default function Home() {
                 <Button
                   variant="secondary"
                   onClick={() =>
-                    window.open("https://dev.fun/WorldOfICM", "_blank")
+                    window.open(
+                      "https://dev.fun/project/cmh3rck12005d9wuqs78ach0i",
+                      "_blank"
+                    )
                   }
                   className="w-full justify-start pixel-font"
                 >
