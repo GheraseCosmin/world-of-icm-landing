@@ -16,9 +16,6 @@ export const metadata: Metadata = {
   title: "World of ICM - 2D Pixel MMORPG on Solana",
   description:
     "Explore, mine, trade, and earn real rewards in the ultimate blockchain gaming experience. A 2D pixel MMORPG on Solana.",
-  other: {
-    "devfun-verification": "",
-  },
 };
 
 export default function RootLayout({
@@ -28,6 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="devfun-verification" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
