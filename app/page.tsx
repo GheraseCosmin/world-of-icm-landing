@@ -1,5 +1,6 @@
 "use client";
 
+import AnimatedHero from "@/components/animated-hero";
 import { Badge } from "@/components/ui/pixelact-ui/badge";
 import { Button } from "@/components/ui/pixelact-ui/button";
 import {
@@ -9,89 +10,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/pixelact-ui/card";
-import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsVisible(true);
-    }, 1000); // 1 second delay
-  }, []);
-
   return (
     <div className="min-h-screen bg-black text-white pixel-bg">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Video/GIF */}
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url(/hero.gif)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        ></div>
+      {/* Animated Hero Section with GSAP Scroll Animation */}
+      <AnimatedHero />
 
-        {/* Purple Overlay */}
-        <div className="absolute inset-0 bg-purple-900/60"></div>
-
-        {/* Animated Background Elements */}
-        {/* <div className="absolute inset-0 retro-grid opacity-20"></div> */}
-        {/* <div className="absolute top-20 left-10 w-4 h-4 bg-purple-500 pixel-float"></div>
-        <div className="absolute top-40 right-20 w-6 h-6 bg-purple-400 pixel-bounce"></div>
-        <div className="absolute bottom-32 left-1/4 w-3 h-3 bg-purple-600 pixel-pulse"></div>
-        <div className="absolute top-1/3 right-1/3 w-5 h-5 bg-purple-300 pixel-rotate"></div> */}
-
-        <div className="text-center z-10 max-w-4xl mx-auto px-4">
-          <div
-            className={`transition-all duration-1000 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            <h1
-              className="text-4xl md:text-8xl font-bold mb-6 pixel-font glitch"
-              data-text="WORLD OF ICM"
-            >
-              WORLD OF ICM
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-yellow-500 pixel-font">
-              Multiplayer 2D Pixel Art on Dev.Fun
-            </p>
-            <p className=" text-sm lg:text-lg mb-12 text-gray-300 max-w-2xl mx-auto">
-              Explore, mine, trade, and earn real rewards in the ultimate
-              blockchain gaming experience. Connect your wallet and start your
-              adventure today!
-            </p>
-          </div>
-
-          <div
-            className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 delay-500 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            <Button
-              variant="default"
-              size="lg"
-              className="pixel-glow text-lg px-8 py-4 pixel-font"
-            >
-              🎮 PLAY NOW
-            </Button>
-            {/* <Button
-              variant="secondary"
-              size="lg"
-              className="text-lg px-8 py-4 pixel-font"
-            >
-              🔗 CONNECT WALLET
-            </Button> */}
-          </div>
-        </div>
-      </section>
+      {/* Watermark hider - only visible during hero animation */}
+      <div className="fixed bottom-0 right-0 w-20 h-10 backdrop-blur-sm z-50 pointer-events-none hero-watermark-hider" />
 
       {/* Characters Section */}
       <section className="py-20 px-4 bg-gray-900">

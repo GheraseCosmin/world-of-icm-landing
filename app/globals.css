@@ -337,3 +337,15 @@
   color: var(--accent);
   z-index: -2;
 }
+
+/* Watermark hider - visible by default, hide when scrolling past hero section */
+.hero-watermark-hider {
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+/* Hide when the hero section is out of view */
+body:not(.hero-visible) .hero-watermark-hider {
+  opacity: 0;
+  pointer-events: none;
+}
